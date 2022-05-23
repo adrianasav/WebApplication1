@@ -1,0 +1,31 @@
+﻿@page
+@{
+    Layout = "_Layout";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h3>Products List</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td align="center">
+                    <a asp-controller="cart" asp-action="buy" asp-route-id="@product.Id">Buy Now</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
